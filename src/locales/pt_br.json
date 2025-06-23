@@ -1,0 +1,11 @@
+{
+    "header":{
+        "txt" : "Pare de usar Rust diretamente, use"
+    },
+    "nav":{
+        "home" : "Inicial",
+        "sobre" : "Sobre",
+        "documentos" : "Documentos",
+        "playground": "Playground"
+    }
+}
