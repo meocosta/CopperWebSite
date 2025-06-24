@@ -1,41 +1,54 @@
 <script lang="ts">
-  import { scroll } from "../stores/scroll";
-  import { resizeX, resizeY } from "../stores/resize";
-  import { onMount } from "svelte";
-  import Header from "./header/header.svelte";
-  import "./layout.scss";
+    import { scroll } from "../stores/scroll";
+    import { lang, t } from "../stores/lang";
+    import { resizeX, resizeY } from "../stores/resize";
+    import { onMount } from "svelte";
+    import "./+layout.scss";
+    import { Info, CircleX } from "lucide-svelte";
+    import Header from "./headers/Header.svelte";
+    import Nav from "./headers/Nav.svelte";
+    import {experience} from "../stores/experience";
 
-  function onScroll() {
-    scroll.set(window.scrollY);
-  }
+    onMount(() => {
+        OnResize();
+        //pra não ter chance de ter scroll horizontal
+        document.body.style.overflowX = "hidden";
+    });
 
-  onMount(() => {
-    document.body.style.overflowX='hidden';
-  })
-  
+    function OnResize() {
+        resizeX.set(window.innerWidth);
+        resizeY.set(window.innerHeight);
+    }
 
-  function OnResize() {
-    resizeX.set(window.innerWidth);
-    resizeY.set(window.innerHeight);
-  }
+    function onScroll() {
+        scroll.set(window.scrollY);
+    }
 
-  onMount(() => {
-    OnResize();
-  });
+    function changeLang(language: string) {
+        lang.set(language);
+    }
 
-  let scrollL: boolean, scrolled: boolean;
-
-  $: if (scrolled && $scroll < 50) {
-    scrolled = false;
-  } else if(!scrolled && $scroll > 50){
-    document.body.style.overflowY = "hidden";
-    setTimeout(() => {
-    document.body.style.overflowY = "scroll";
-    }, 600);
-    scrolled = true;
-  }
+    let traduction: any;
+    $: {
+        $lang;
+        traduction = {
+            alert: {
+                titulo: t("alert.titulo"),
+                txt: t("alert.txt"),
+            },
+        };
+    }
 </script>
 
 <svelte:window on:scroll={onScroll} on:resize={OnResize} />
-  <Header />
-  <slot></slot>
+
+<section id="CopperWebSite" class:expo={$experience}>
+    <section id="conteudoCopperWebSite">
+        <Header />
+        <div id="headerSpace" style="height:{$experience ? 100 : 10}vh"></div>
+        <slot />
+    </section>
+    
+    <Nav />
+    <div id="navSpace"></div>
+</section>

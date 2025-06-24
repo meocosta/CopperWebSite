@@ -7,5 +7,9 @@
         "sobre" : "Sobre",
         "documentos" : "Documentos",
         "playground": "Playground"
+    },
+    "alert":{
+        "titulo": "Alerta",
+        "txt": "Se você não quiser o modo experience e sim o modo comum (melhor para acessos rápidos no site), clique no botão de informação no canto inferior esquerdo"
     }
 }

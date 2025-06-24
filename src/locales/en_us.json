@@ -1,11 +1,15 @@
 {
-    "header":{
-        "txt" : "Stop using Rust directly, use"
+    "header": {
+        "txt": "Stop using Rust directly, use"
     },
-    "nav":{
-        "home" : "Home",
-        "sobre" : "About",
-        "documentos" : "Docs",
+    "nav": {
+        "home": "Home",
+        "sobre": "About",
+        "documentos": "Docs",
         "playground": "Playground"
+    },
+    "alert": {
+        "titulo": "Alert",
+        "txt": "If you don't want experience mode and prefer the regular mode (better for quick access to the site), click the info button in the bottom left corner"
     }
 }

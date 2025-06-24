@@ -1,0 +1,105 @@
+@use '../basics.scss' as b;
+
+nav {
+    position: fixed;
+    margin-left: 95vw;
+    width: 5vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    #Navegation {
+        z-index: 2;
+        margin-top: 1.5vw;
+    }
+
+    #Navegation,
+    #info {
+        button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+
+            .icons {
+                @include b.t(1s);
+                color: b.$branco
+            }
+        }
+    }
+
+    #scrollBar {
+        height: 50vh;
+        width: 1px;
+        background-color: white;
+
+        div {
+            height: 10vh;
+            width: 1px;
+            background-color: b.$azul;
+        }
+    }
+
+    #navOpen {
+        @include b.t(1s);
+        box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.419);
+        height: 100vh;
+        position: absolute;
+        width: 50vw;
+        background-color: b.$preto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 20px;
+        padding-top: 5vh;
+
+        a {
+            color: b.$cinza;
+            @include b.ls(4vw);
+            text-decoration: none;
+            cursor: pointer;
+            @include b.t(0.5s);
+        }
+
+        a:hover {
+            text-shadow: 0px 0px 20px b.$branco;
+            color: b.$cinza;
+        }
+
+        div {
+            display: flex;
+            gap: 1vw;
+
+            button,
+            p {
+                cursor: pointer;
+                background-color: transparent;
+                border: none;
+                color: b.$branco;
+                @include b.ls(2vw);
+
+            }
+
+
+
+            .ativo {
+                color: b.$branco;
+            }
+
+            .inativo {
+                color: b.$azul;
+            }
+
+        }
+    }
+}
+
+.overline {
+    position: relative;
+    background-image: linear-gradient(to right, b.$azul 70%, transparent 100%);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 120% 2px;
+    padding-top: 10px;
+}

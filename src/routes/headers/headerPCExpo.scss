@@ -1,0 +1,47 @@
+@use '../basics.scss' as b;
+
+header {
+    position: fixed;
+    padding: 0px 5vw;
+
+    p {
+        @include b.ls(3vw);
+        color: b.$branco;
+        position: absolute;
+        top: 30vh;
+        width: 50vw;
+        left: 20vw;
+    }
+
+    h1 {
+        @include b.ls(20vw, 600);
+        color: b.$branco;
+        top: 25vh;
+        position: absolute;
+    }
+
+    #sombrah1 {
+        background: linear-gradient(to right, b.$azul, b.$branco, b.$azul);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: blur(20px);
+        z-index: -1;
+        animation: animaGradiente 5s ease infinite;
+    }
+
+    @keyframes animaGradiente {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
